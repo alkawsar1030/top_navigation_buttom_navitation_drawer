@@ -18,15 +18,22 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
-  final activyty= [
+
+  List<Tab> activytyButton= [
     Tab(icon: Icon(Icons.home), text: 'Home'),
     Tab(icon: Icon(Icons.alarm), text: 'Alarm'),
     Tab(icon: Icon(Icons.email), text: 'Email'),
   ];
+  List<Widget> activytyViews=[
+    Homeactivity(),
+    Alarmactivity(),
+    Emailactivity()
+  ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length:activyty.length,
+      length:activytyButton.length,
       child: Scaffold(
         appBar: AppBar(
           title: Center(child: Text('NavigationExample02')),
@@ -34,18 +41,11 @@ class HomePage extends StatelessWidget {
             isScrollable: false,
             tabAlignment: TabAlignment.fill,
 
-            tabs: [
-              Tab(icon: Icon(Icons.home), text: 'Home'),
-              Tab(icon: Icon(Icons.alarm), text: 'Alarm'),
-              Tab(icon: Icon(Icons.email), text: 'Email'),
-            ],
+            tabs:
+            activytyButton,
           ),
         ),
-        body: TabBarView(children: [
-          Homeactivity(),
-          Alarmactivity(),
-          Emailactivity()
-        ]),
+        body: TabBarView(children: activytyViews),
       ),
     );
   }
