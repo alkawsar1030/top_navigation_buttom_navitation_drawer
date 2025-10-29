@@ -10,6 +10,7 @@ class Homeactivity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
+
       body:Center(
         child: Container(
           child: Text('This is Home Activity'),

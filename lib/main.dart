@@ -55,6 +55,60 @@ class HomePage extends StatelessWidget {
           ),
         ),
         body: TabBarView(children: activytyViews),
+        drawer: Drawer(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              const DrawerHeader(
+                decoration: BoxDecoration(color: Colors.blue,),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+
+                    SizedBox(height: 8),
+                    Text('Welcome, Kawsar Ullah!',
+                        style: TextStyle(color: Colors.white, fontSize: 18)),
+                  ],
+
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.home),
+                title: const Text('Home'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.alarm),
+                title: const Text('Alarm'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => const Alarmactivity()));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.email),
+                title: const Text('Email'),
+                onTap: () {
+                  Navigator.pushReplacement(
+                      context, MaterialPageRoute(builder: (_) => const Emailactivity()));
+                },
+              ),
+              const Divider(),
+              ListTile(
+                leading: const Icon(Icons.settings),
+                title: const Text('Settings'),
+                onTap: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Settings coming soon!')),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
 
     );
